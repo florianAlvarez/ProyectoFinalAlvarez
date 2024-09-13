@@ -1,0 +1,55 @@
+.titulo{
+    padding: 0 0 0 60px;
+}
+.words{
+    font-size: 14.7px;
+    text-align: center;
+}
+
+@mixin flex-center($direction: row, $justify: space-between, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+  }
+  
+  // Contenedor flex
+  .flex-container {
+    @include flex-center(row, space-between);
+    flex-wrap: wrap;
+    margin: $spacing;
+  
+    .flex-item {
+      flex: 1 1 100%;
+      margin: $spacing;
+      max-width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+  
+      @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+        flex: 1 1 100%; // Ajustamos al 100% del contenedor
+        max-width: 80vw; // Limitamos el ancho para pantallas medianas
+        margin: 0 auto; // Centrar el contenido
+      }
+  
+      p {
+        font-size: 1rem;
+  
+        @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+          font-size: 0.9rem; // Reducir el tamaño de fuente en pantallas medianas
+        }
+      }
+    }
+  }
+  
+  // Estilos para el iframe del mapa
+  iframe {
+    width: 100%;
+    height: 450px;
+    border: 10px;
+  
+    @media (min-width: $breakpoint-md) {
+      height: 400px; // Ajuste en pantallas grandes
+    }
+  }
+  
